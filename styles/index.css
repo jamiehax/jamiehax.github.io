@@ -1,0 +1,50 @@
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(10, 10, 25, 0.9);
+}
+
+body {
+    font-family: Georgia, serif;
+    margin: 25vh auto 0;
+    padding: 1em;
+    text-align: center;
+    color: rgb(225, 225, 255);
+}
+
+/* style the container */
+.links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* style each link */
+.links-container a {
+    color: rgb(225, 225, 255);
+    text-decoration: none;
+    padding: 10px 10px;
+    font-style: normal;
+    transition: all 0.5s ease;
+}
+
+.links-container a:hover {
+    font-style: italic;
+    background-color: rgb(225, 225, 255);
+    color: rgba(10, 10, 25, 0.9);;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+/* Add space between links */
+.links-container a + a {
+    margin-left: 20px;
+}
+
+
+
+
