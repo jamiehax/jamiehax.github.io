@@ -17,7 +17,18 @@ body a{
     color: rgb(225, 225, 255);
 }
 
-body a:hover{
+.full-width-image img {
+    width: 100%;
+    height: auto;
+}
+
+.header-section {
+    background-color: rgba(0, 0, 0, 0.9); /* Darker background color */
+    padding: 20px; /* Add some padding */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* White border on the bottom */
+}
+
+.header-section a:hover{
     font-style: italic;
     text-decoration: underline;
     color: rgb(225, 225, 255);
@@ -109,6 +120,7 @@ body a:hover{
 /* style for links when hovered over */
 .links-container a:hover {
     font-style: italic;
+    text-decoration: none;
     background-color: rgb(225, 225, 255);
     color: rgba(10, 10, 25, 0.9);;
     border-radius: 5px;

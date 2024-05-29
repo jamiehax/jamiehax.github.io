@@ -10,7 +10,7 @@ canvas {
 
 body {
     font-family: Georgia, serif;
-    margin: 25vh auto 0;
+    margin: 20vh auto 0;
     padding: 1em;
     text-align: center;
     color: rgb(225, 225, 255);
@@ -18,33 +18,38 @@ body {
 
 /* style the container */
 .links-container {
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 25px;
+    margin: 10px auto;
+    background-color: rgba(10, 10, 25, 0.9);
+    border-radius: 10px;
+    z-index: 10;
+    display: inline-block;
 }
 
 /* style each link */
 .links-container a {
     color: rgb(225, 225, 255);
+    font-size: 2em;
     text-decoration: none;
     padding: 10px 10px;
     font-style: normal;
     transition: all 0.5s ease;
+    display: block;
 }
 
 .links-container a:hover {
     font-style: italic;
     background-color: rgb(225, 225, 255);
-    color: rgba(10, 10, 25, 0.9);;
+    color: rgba(10, 10, 25, 0.9);
     border-radius: 5px;
     padding: 10px 20px;
 }
 
 /* Add space between links */
 .links-container a + a {
-    margin-left: 20px;
+    margin-top: 10px;
 }
-
-
-
 

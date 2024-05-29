@@ -4,15 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generative Markov Models</title>
-    <link rel="stylesheet" href="../styles/projects.css">
+    <link rel="stylesheet" href="../styles/project-page.css">
 </head>
 <body>
 
-    <h1>generative markov models</h1>
+    <div class="header-section">
+        <div class="links-container">
+            <a href="../index.html">HOME</a>
+            <a href="../projects.html">PROJECTS</a>
+        </div>
     
-    <div class="links-container">
-        <a href="../index.html">HOME</a>
-        <a href="../projects.html">PROJECTS</a>
+        <h1>generative markov model</h1>
+    
+        <a href="https://github.com/jamiehax/markov-tweet-generator">code repository</a>
+    </div>
+
+    <div class="section" id="Abstract">
+        <h1>Abstract</h1>
+
+        <p>The goal of this project was to explore the capabilities of Markov models as generative text models. Specifically, this project implemented three variations of Markov models, V1, V2, and V3 to understand their efficacy in generating tweets. V1 is the simplest of the three models. It implements a first order markov chain - where each state represents a word - to generate text by sampling from the conditional probability distribution. The V2 model performs the best of the 3, and implements a third order markov chain, where again each state represents a word. This model generates text by sampling from a weighted distribution of the first, second, and third order probabilities. Finally, I had high hopes for the V3 model, but it unforuntaely failed to live up to its potential. It implements a second order markov chain with P.O.S. tagging. In this model, the states are parts of speech which depend only on the previous state and are transitioned between based on probabilities learned from the training data. Each state emits a word, which depends on the previous two words.</p>
+
+        <h3>A Visual Representation of the Project is Given Below:</h3>
+
+        <div class="full-width-image">
+            <img src="../imgs/gmm.jpg" alt="Generative Markov Model Image">
+        </div>
+        
+    </div>
+
+    <div class="section" id="Background">
+        <h1>Background</h1>
+
+        <p>While deep AI models have become more adept at generating sensible, coherent text, they have also increased greatly both in their complexity and the amount of data required to train them. This project explores the capabilities of simpler statistical models to generate text. This was motivated, in part, by the fact that the complexity of these models often limits how well semantic information can be gleaned from them. It is difficult to come to good understanding of the patterns and context a deep model may have picked up on to generate text. Markov models, on the other hand, provide a much simpler generative model, and are also easier to interpret. By finding the probability of the path taken through the model to generate the text, we can at least come to a statistical understanding of the relationship between the words. Extending this idea to sub paths allows for a statistical understanding of smaller sequences of words. The cost of this simplicity is that, because of the Markov independence assumption, the model struggles with coherency and semantic consistency. The goal of this project was to design and implement different Markov model structures and identify their strengths and weaknesses.</p>
+    </div>
+
+    <div class="section" id="Methods">
+        <h1>Methods</h1>
+
+        <p>For this project, I designed and implemented 3 different Markov models, V1, V2, and V3. To evaluate the models, I took the unobjective approach of trying out different prompts and seeing which model produced the most realistic tweets. For future work, I think a  better approach would be to design a classification model and train it to differentiate between real and generated tweets. While the models differ in their structure, they all follow the same basic idea. The data from the tweets is processed, cleaned, and tokenized (via the NLTK python package), and the necessary word occurrences for the specific model are counted. Once the model is built, it takes a prompt as input, calculates the probability distribution for the next word given seeing the prompt, and samples from that distribution. It then samples for the next word given seeing the prompt and this new word and continues iteratively until it reaches the word limit (currently set to 20) or it samples a null, which was added to the end of all the tweets when processing the data.</p>
+
+        <h3>V1 - First Order Markov Chain</h3>
+
+        <p>This model is the simplest of the three and was designed to get my feet wet and create a baseline more than anything else. In this model, the word at state <i>k</i> depends only on the word in state <i>k - 1</i>.</p>
+
+        <h3>V2 - Third Order Markov Chain</h3>
+
+        <p>This model built off the V1 model by extending the first order Markov Chain to a third order Markov chain. The hope was that this model would produce more coherent results since the sampled word depends on the previous 3 words. A concern with this model was that there would not be enough data to rely only on the third order probabilities. To get around this, I sampled from a weighted distribution of the first, second, and third order probabilities. Specifically, the model separately calculates the distributions of each order, scales the second and third order distributions by some factor (currently 2 for the second order and 3 for the third order), combines them into one list of probabilities, and then normalizes that list into one probability distribution to then sample from. The idea was that if there was enough data to calculate the third order probabilities, they should be more likely to get sampled, but if there was not enough data the model could still sample a word from the first or second order probabilities.</p>
+
+        <h3>V1 - Second Order Markov Chain with P.O.S. Tagging</h3>
+
+        <p>This model built of the V2 model by combining a second order Markov chain with part of speech tagging. It uses the same weighted probability sampling for first and second order probabilities as V2. Unlike the previous models where the states are the words, in this model the states are the parts of speech, and the words are emissions from these part of speech states. In this sense, it is similar to a hidden Markov model by emitting words, but the states are known. The emitted word depends on the P.O.S. as well as the previous two emitted words. Specifically, to sample the word emitted from state k, the part of speech at state k is sampled given the transition probabilities from the part of speech at position <i>k - 1</i>. The emitted word is then limited to words of that P.O.S., and the probability distribution for those words comes from the weighted distribution of the first and second order probabilities from the words emitted from states <i>k - 1</i>, <i>k - 2</i>.</p>
+    </div>
+
+    <div class="section" id="Results">
+        <h1>Results</h1>
+
+        <p>The V1 model struggled to produce any coherent or grammatically correct tweets. Most of what it generated made little sense and often connected several unrelated ideas with poor grammar. The V2 model showed the best results and was able at times to produce semi-coherent tweets. While it would still generate nonsensical tweets at times, it showed a capability to occasionally generate almost realistic tweets. The shorter the tweet it generated, the better it seemed to do. In the longer tweets it seemed to struggle in connecting the ideas of the tweet. For example, when trained on tweets from republicans about the 2020 election and prompted with “democrats are", it generated:</p>
+
+        <h3><span class="code">democrats are the backbone of our lord and savior</span></h3>
+
+        <p>It is a grammatically sound tweet but does not make a ton of sense especially when considering it is coming from a “republican”. A tweet like that exemplifies the limitations of Markov model states depending only on the (in this case) 3 states before it. The V3 model produced better results than the V1 but seemed to fall short of the V2 model on consistency. I think this is largely the result of too little training data. Adding in the P.O.S. tagging greatly limited the words the model could sample from for each subsequent state. The result was that it often only generated 3 – 5 words before ending. On very general prompts, it preforms alright, but the more specific the prompt the more the model seems to struggle. I think this model could work very well given enough data, however. None of these models currently have any safeguards against generating biased or inappropriate tweets. When prompting the V2 model trained on Joe Biden tweets with “jill and i”, it returned: </p>
+
+        <h3><span class="code">...</span></h3>
+
+        <p>It is important to understand these models may generate these kinds of tweets, and I think in the future it would be important to design measures to prevent this – either in filtering the data before training, or filtering the generated text, or both.</p>
+    </div>
+
+    <div class="section" id="Conclusion">
+        <h1>Conclusion</h1>
+
+        <p>Overall, this project showed the capabilities and limitations of different Markov models for generating tweets. The V2 model showed promising results, and while the V3 model did not perform as well as I expected, I believe given ample data, it could produce good results.</p>
     </div>
     
 </body>
