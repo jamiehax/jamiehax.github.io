@@ -7,6 +7,16 @@ body {
     padding: 0;
 }
 
+body a{
+    font-style: italic;
+    text-decoration: none;
+    color: rgb(225, 225, 255);
+}
+
+body a:hover {
+    text-decoration: underline;
+}
+
 .header-section {
     background-color: rgba(0, 0, 0, 0.9); /* Darker background color */
     padding: 20px; /* Add some padding */
@@ -40,4 +50,34 @@ body {
 
 .links-container a + a {
     margin-left: 20px;
+}
+
+.header-section .social-links {
+    text-align: center;
+}
+
+.header-section .social-links a {
+    display: inline-block;
+    margin-right: 3em;
+}
+
+.header-section .social-links a:last-child {
+    margin-right: 0; 
+}
+
+.section {
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+.section h1{
+    font-size: 2.5em;
+    padding-top: 0.5em;
+}
+
+.section p {
+    font-size: 1.15em;
+    margin: 2em;
+    line-height: 1.5; /* Increase line spacing */
+    text-align: justify; /* Justify text */
 }

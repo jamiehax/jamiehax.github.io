@@ -18,8 +18,17 @@ body a{
 }
 
 .full-width-image img {
-    width: 100%;
+    width: 80%;
     height: auto;
+    border: 10px solid black;
+    border-radius: 10px;
+}
+
+.half-width-image img {
+    width: 40%;
+    height: auto;
+    border: 10px solid black;
+    border-radius: 10px;
 }
 
 .header-section {

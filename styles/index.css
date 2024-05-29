@@ -16,6 +16,35 @@ body {
     color: rgb(225, 225, 255);
 }
 
+.popup {
+    background-color: rgb(225, 225, 255);
+    color: rgba(10, 10, 25, 1);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 10px;
+    display: none;
+    cursor: pointer;
+}
+
+.popup #popup-content {
+    display: block;
+}
+
+.popup #popup-content-expanded {
+    display: none;
+}
+
+.popup.expanded {
+    width: 400px; /* expanded width */
+    height: 200px; /* expanded height */
+    color: rgb(225, 225, 255); /* optional: change background color */
+    background-color: rgba(10, 10, 25, 1);
+}
+
 /* style the container */
 .links-container {
     flex-direction: column;
@@ -38,6 +67,12 @@ body {
     font-style: normal;
     transition: all 0.5s ease;
     display: block;
+    border-bottom: 4px solid rgb(225, 225, 255);
+}
+
+.links-container a:last-child {
+    border-top: 4px solid rgb(225, 225, 255);
+    border-bottom: none;
 }
 
 .links-container a:hover {

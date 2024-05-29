@@ -4,13 +4,19 @@ window.onload = function() {
 
     const numberOfLines = 15;
     const threshold = 150; 
-    const movementFraction = 0.15;
+    const movementFraction = 0.2;
     const interactionInterval = 1;
     const segmentLength = 5;
     const drawInterval = 2;
 
     let lines = [];
     let frameCount = 0;
+    let allLinesFinished = false;
+
+    function showPopup() {
+        var popup = document.getElementById('bc-popup');
+        popup.style.display = 'block';
+    }
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -56,15 +62,23 @@ window.onload = function() {
                     } else {
                         line.finished = true;
                     }
-
                 });
+
+                // Check if all lines are finished
+                if (lines.every(line => line.finished)) {
+                    allLinesFinished = true;
+                }
 
                 if (frameCount % (interactionInterval * drawInterval) === 0) {
                     updateOpinions();
                 }
             }
 
-            requestAnimationFrame(animate);
+            if (!allLinesFinished) {
+                requestAnimationFrame(animate);
+            } else {
+                showPopup(); // Call showPopup when all lines are finished
+            }
         }
 
         animate();
@@ -99,4 +113,25 @@ window.onload = function() {
 
     initializeLines();
     animateLines();
+
+    const popup = document.getElementById("bc-popup");
+    const popupContent = document.getElementById("popup-content");
+    const popupContentExpanded = document.getElementById("popup-content-expanded");
+
+    // Function to expand the popup and change its content
+    function expandPopup() {
+        popup.classList.toggle("expanded");
+
+        if (popup.classList.contains("expanded")) {
+            popupContent.style.display = "none";
+            popupContentExpanded.style.display = "block";
+        } else {
+            popupContent.style.display = "block";
+            popupContentExpanded.style.display = "none";
+        }
+    }
+
+    // Add event listener to the popup
+    popup.addEventListener("click", expandPopup);
+
 };
