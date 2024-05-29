@@ -46,6 +46,7 @@ body a:hover {
     color: rgba(10, 10, 25, 0.9);;
     border-radius: 5px;
     padding: 10px 20px;
+    text-decoration: none;
 }
 
 .links-container a + a {
