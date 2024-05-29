@@ -7,12 +7,10 @@ body {
     padding: 0;
 }
 
-.title-container {
-    padding: 1em 0; 
-}
-
-.title-container h1 {
-    font-size: 3em;
+.header-section {
+    background-color: rgba(0, 0, 0, 0.9); /* Darker background color */
+    padding: 20px; /* Add some padding */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* White border on the bottom */
 }
 
 /* style the container */
