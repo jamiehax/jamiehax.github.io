@@ -71,6 +71,29 @@ body a{
     border-radius: 5px;
 }
 
+.section .tweet {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(80, 80, 120, 1);
+    padding: 0.25em;
+    border-radius: 5px;
+}
+
+.section .tweet-toggle {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(80, 80, 120, 1);
+    padding: 0.25em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.section .tweet-text {
+    display: none;
+}
+
+.section .tweet:hover + .tweet-text {
+    display: block;
+}
+
 /* Apply styles to the table */
 .table-container table {
     width: 100%; /* Make the table fill its container */

@@ -14,7 +14,7 @@
             <a href="../projects.html">PROJECTS</a>
         </div>
     
-        <h1>generative markov model</h1>
+        <h1>generative markov models</h1>
     
         <a href="https://github.com/jamiehax/markov-tweet-generator">code repository</a>
     </div>
@@ -51,7 +51,7 @@
 
         <p>This model built off the V1 model by extending the first order Markov Chain to a third order Markov chain. The hope was that this model would produce more coherent results since the sampled word depends on the previous 3 words. A concern with this model was that there would not be enough data to rely only on the third order probabilities. To get around this, I sampled from a weighted distribution of the first, second, and third order probabilities. Specifically, the model separately calculates the distributions of each order, scales the second and third order distributions by some factor (currently 2 for the second order and 3 for the third order), combines them into one list of probabilities, and then normalizes that list into one probability distribution to then sample from. The idea was that if there was enough data to calculate the third order probabilities, they should be more likely to get sampled, but if there was not enough data the model could still sample a word from the first or second order probabilities.</p>
 
-        <h3>V1 - Second Order Markov Chain with P.O.S. Tagging</h3>
+        <h3>V3 - Second Order Markov Chain with P.O.S. Tagging</h3>
 
         <p>This model built of the V2 model by combining a second order Markov chain with part of speech tagging. It uses the same weighted probability sampling for first and second order probabilities as V2. Unlike the previous models where the states are the words, in this model the states are the parts of speech, and the words are emissions from these part of speech states. In this sense, it is similar to a hidden Markov model by emitting words, but the states are known. The emitted word depends on the P.O.S. as well as the previous two emitted words. Specifically, to sample the word emitted from state k, the part of speech at state k is sampled given the transition probabilities from the part of speech at position <i>k - 1</i>. The emitted word is then limited to words of that P.O.S., and the probability distribution for those words comes from the weighted distribution of the first and second order probabilities from the words emitted from states <i>k - 1</i>, <i>k - 2</i>.</p>
     </div>
@@ -61,11 +61,11 @@
 
         <p>The V1 model struggled to produce any coherent or grammatically correct tweets. Most of what it generated made little sense and often connected several unrelated ideas with poor grammar. The V2 model showed the best results and was able at times to produce semi-coherent tweets. While it would still generate nonsensical tweets at times, it showed a capability to occasionally generate almost realistic tweets. The shorter the tweet it generated, the better it seemed to do. In the longer tweets it seemed to struggle in connecting the ideas of the tweet. For example, when trained on tweets from republicans about the 2020 election and prompted with “democrats are", it generated:</p>
 
-        <h3><span class="code">democrats are the backbone of our lord and savior</span></h3>
+        <h3><span class="tweet">democrats are the backbone of our lord and savior</span></h3>
 
-        <p>It is a grammatically sound tweet but does not make a ton of sense especially when considering it is coming from a “republican”. A tweet like that exemplifies the limitations of Markov model states depending only on the (in this case) 3 states before it. The V3 model produced better results than the V1 but seemed to fall short of the V2 model on consistency. I think this is largely the result of too little training data. Adding in the P.O.S. tagging greatly limited the words the model could sample from for each subsequent state. The result was that it often only generated 3 – 5 words before ending. On very general prompts, it preforms alright, but the more specific the prompt the more the model seems to struggle. I think this model could work very well given enough data, however. None of these models currently have any safeguards against generating biased or inappropriate tweets. When prompting the V2 model trained on Joe Biden tweets with “jill and i”, it returned: </p>
+        <p>It is a grammatically sound tweet but does not make a ton of sense especially when considering it is coming from a “republican”. A tweet like that exemplifies the limitations of Markov model states depending only on the (in this case) 3 states before it. The V3 model produced better results than the V1 but seemed to fall short of the V2 model on consistency. I think this is largely the result of too little training data. Adding in the P.O.S. tagging greatly limited the words the model could sample from for each subsequent state. The result was that it often only generated 3 – 5 words before ending. On very general prompts, it preforms alright, but the more specific the prompt the more the model seems to struggle. I think this model could work very well given enough data, however. None of these models currently have any safeguards against generating biased or inappropriate tweets. When prompting the V2 model trained on Joe Biden tweets with “jill and i”, it returned (click the elipses to reveal the tweet): </p>
 
-        <h3><span class="code">...</span></h3>
+        <h3><span class="tweet-toggle" id="hidden-tweet">...</span></h3>
 
         <p>It is important to understand these models may generate these kinds of tweets, and I think in the future it would be important to design measures to prevent this – either in filtering the data before training, or filtering the generated text, or both.</p>
     </div>
@@ -76,5 +76,7 @@
         <p>Overall, this project showed the capabilities and limitations of different Markov models for generating tweets. The V2 model showed promising results, and while the V3 model did not perform as well as I expected, I believe given ample data, it could produce good results.</p>
     </div>
     
+    <script src="../scripts/reveal-tweet.js"></script>
+
 </body>
 </html>
