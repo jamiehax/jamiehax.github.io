@@ -176,8 +176,7 @@ body a:hover{
 }
 
 .tweet-generator-container {
-    margin: 20px 20px;
-    padding: 0.7em 0;
+    padding-bottom: 1em;
 }
 
 .tweet-input {
@@ -214,8 +213,7 @@ body a:hover{
 }
 
 .selection {
-    margin-right: 10px;
-    padding: 10px 10px;
+    padding: 10px 20px;
     font-size: 1em;
     border: 2px solid rgba(225, 225, 255, 0.8);
     border-radius: 5px;
@@ -224,12 +222,19 @@ body a:hover{
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     vertical-align: middle;
-    text-align: center;
     appearance: none;
     -webkit-appearance: none
+}
+
+.selection:focus{
+    outline: none;
 }
 
 .selection:hover {
     background-color: rgba(225, 225, 255, 1);
     color: rgba(10, 10, 25, 1);
+}
+
+.tweet-input:focus {
+    outline: none;
 }
