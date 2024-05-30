@@ -17,6 +17,11 @@ body {
     padding-top: 2%;
 }
 
+.section h2{
+    font-size: 2em;
+    padding-top: 2%;
+}
+
 .section p {
     font-size: 1.15em;
     margin: 3%;

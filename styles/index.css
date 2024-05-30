@@ -17,7 +17,7 @@ body {
 }
 
 .popup {
-    background-color: rgb(225, 225, 255);
+    background-color: rgba(225, 225, 255, 0.9);
     color: rgba(10, 10, 25, 1);
     position: fixed;
     bottom: 0;
@@ -42,7 +42,7 @@ body {
     width: 400px;
     height: 220px;
     color: rgb(225, 225, 255);
-    background-color: rgba(10, 10, 25, 1);
+    background-color: rgba(10, 10, 25, 0.9);
 }
 
 /* style the container */

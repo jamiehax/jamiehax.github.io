@@ -25,6 +25,14 @@
 
         <p>The goal of this project was to explore the capabilities of Markov models as generative text models. Specifically, this project implemented three variations of Markov models, V1, V2, and V3 to understand their efficacy in generating tweets. V1 is the simplest of the three models. It implements a first order markov chain - where each state represents a word - to generate text by sampling from the conditional probability distribution. The V2 model performs the best of the 3, and implements a third order markov chain, where again each state represents a word. This model generates text by sampling from a weighted distribution of the first, second, and third order probabilities. Finally, I had high hopes for the V3 model, but it unforuntaely failed to live up to its potential. It implements a second order markov chain with P.O.S. tagging. In this model, the states are parts of speech which depend only on the previous state and are transitioned between based on probabilities learned from the training data. Each state emits a word, which depends on the previous two words.</p>
 
+        <div class="tweet-generator-container">
+            <h3>try it out:</h3>
+            <input type="text" id="prompt" name="prompt" class="tweet-input" placeholder="enter a minimum of 3 words">
+            <button id="generateButton" class="tweet-button">Generate Tweet</button>
+            <h3 id="result"><span class="tweet">...</span></h3>
+        </div>
+        
+
         <h3>Why So Political?</h3>
 
         <p>In short, I trained these models on political tweets because those kinds of tweets are often the most recognizable and characteristic tweets you can find on twitter. It is very easy to tell which side of the political spectrum a tweet is from, and I wanted to see if the models could emulate that. Also, politicians, especially these days, tweet very funny things sometimes. I understand that it is easy to sit back and call these political tweets entertaining and meanwhile miss the point that they are often harmful and damaging to many groups. My intentions are not to joke about the harm these tweets may cause, but rather point out how ridiculous some politicians and celebrities can be.</p>
@@ -74,23 +82,23 @@
 
         <p>It is important to understand these models may generate these kinds of tweets, and I think in the future it would be important to design measures to prevent this – either in filtering the data before training, or filtering the generated text, or both.</p>
 
-        <h2>More Tweets</h2>
+        <h1>More Tweets</h1>
 
         <p>Below are some more fun and interesting tweets I was able to generate.</p>
 
-        <h3>V2 Model Trained on Republican Tweets</h3>
+        <h2>V2 Model Trained on Republican Tweets</h2>
 
         <h3><span class="tweet">covid is a win for congressional dialogue at the womack</span></h3>
 
         <h3><span class="tweet">the media got this done</span></h3><p></p>
 
-        <h3>V2 Model Trained on Democrat Tweets</h3>
+        <h2>V2 Model Trained on Democrat Tweets</h2>
 
         <h3><span class="tweet">the republicans failed to protect million americans</span></h3>
 
         <h3><span class="tweet">the only way americans in michigan and across the nation presented awards to prevent the ic from uncovering plots against</span></h3><p></p>
 
-        <h3>V2 Model Trained on Joe Biden Tweets</h3>
+        <h2>V2 Model Trained on Joe Biden Tweets</h2>
 
         <h3><span class="tweet">americans are paying the price every single day for the trump tax cut that was a woman and her dissents</span></h3>
 
@@ -98,7 +106,7 @@
 
         <h3><span class="tweet">jill and i know neither one of you because we are down with ron klain former white house @hillaryclinton join</span></h3><p></p>
 
-        <h3>V2 Model Trained on Donald Trump Tweets</h3>
+        <h2>V2 Model Trained on Donald Trump Tweets</h2>
 
         <h3><span class="tweet">the left is now doing more for our leader john quincy adams</span></h3>
 
@@ -106,7 +114,7 @@
 
         <h3><span class="tweet">donald trump is beating so bad would be the presidential telephone call his members went wild time seeing you david</span></h3><p></p>
 
-        <h3>V2 Model Trained on Elon Musk Tweets</h3>
+        <h2>V2 Model Trained on Elon Musk Tweets</h2>
 
         <h3><span class="tweet">elon musk is a new delivery system using legs as air feed rate holograph generator</span></h3>
 
@@ -123,7 +131,7 @@
         <p>Overall, this project showed the capabilities and limitations of different Markov models for generating tweets. The V2 model showed promising results, and while the V3 model did not perform as well as I expected, I believe given ample data, it could produce good results.</p>
     </div>
     
-    <script src="../scripts/reveal-tweet.js"></script>
+    <script src="../scripts/tweets.js"></script>
 
 </body>
 </html>
