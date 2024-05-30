@@ -6,7 +6,7 @@ window.onload = function() {
     const threshold = 150; 
     const movementFraction = 0.25;
     const interactionInterval = 1;
-    const segmentLength = 4;
+    const segmentLength = 3;
     const drawInterval = 1;
     const lineWidth = 4;
 
