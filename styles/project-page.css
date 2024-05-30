@@ -17,6 +17,10 @@ body a{
     color: rgb(225, 225, 255);
 }
 
+body a:hover{
+    text-decoration: underline;
+}
+
 .full-width-image img {
     width: 80%;
     height: auto;

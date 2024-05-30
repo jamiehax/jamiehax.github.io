@@ -40,7 +40,7 @@ body {
 
 .popup.expanded {
     width: 400px;
-    height: 200px;
+    height: 220px;
     color: rgb(225, 225, 255);
     background-color: rgba(10, 10, 25, 1);
 }
