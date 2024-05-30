@@ -32,9 +32,9 @@ body a{
 }
 
 .header-section {
-    background-color: rgba(0, 0, 0, 0.9); /* Darker background color */
-    padding: 20px; /* Add some padding */
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* White border on the bottom */
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .header-section a:hover{
@@ -44,20 +44,20 @@ body a{
 }
 
 .section {
-    padding-left: 4em;
-    padding-right: 4em;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .section h1{
     font-size: 2.5em;
-    padding-top: 0.5em;
+    padding-top: 2%;
 }
 
 .section p {
     font-size: 1.15em;
-    margin: 2em;
-    line-height: 1.5; /* Increase line spacing */
-    text-align: justify; /* Justify text */
+    margin: 3%;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 .section ul, .section li {
@@ -69,7 +69,7 @@ body a{
 
 /* Style for <li> elements */
 .section li {
-    margin-bottom: em; /* Add some bottom margin between list items */
+    margin-bottom: em;
 }
 
 /* Apply code styling to code-like text within list items */
@@ -105,30 +105,30 @@ body a{
 
 /* Apply styles to the table */
 .table-container table {
-    width: 100%; /* Make the table fill its container */
-    border-collapse: collapse; /* Collapse borders between cells */
+    width: 100%;
+    border-collapse: collapse;
 }
 
 /* Apply styles to table headers */
 .table-container th {
-    background-color: rgb(225, 225, 255);; /* Light gray background color */
+    background-color: rgb(225, 225, 255);;
     color: rgba(10, 10, 25, 0.9);
-    padding: 0.5em; /* Add padding around the header text */
-    border: 1px solid #ddd; /* Add a border to separate headers */
-    text-align: center; /* Center-align header text */
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 
 /* Apply styles to table cells */
 .table-container td {
-    padding: 0.5em; /* Add padding around the cell content */
-    border: 1px solid #ddd; /* Add a border to separate cells */
-    text-align: left; /* Left-align cell content */
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
 /* Apply styles to table cells with superscript */
 .table-container td sup {
-    vertical-align: super; /* Align superscript vertically */
-    font-size: smaller; /* Adjust font size for superscript */
+    vertical-align: super;
+    font-size: smaller;
 }
 
 
@@ -137,14 +137,13 @@ body a{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5em;
 }
 
 /* style each link */
 .links-container a {
     color: rgb(225, 225, 255);
     text-decoration: none;
-    padding: 10px 10px;
+    padding: 0.7% 0.7%;
     font-style: normal;
     transition: all 0.5s ease;
 }
@@ -152,13 +151,13 @@ body a{
 /* style for links when hovered over */
 .links-container a:hover {
     font-style: italic;
-    text-decoration: none;
     background-color: rgb(225, 225, 255);
     color: rgba(10, 10, 25, 0.9);;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 0.7% 1.2%;
+    text-decoration: none;
 }
 
 .links-container a + a {
-    margin-left: 20px;
+    margin-left: 1%;
 }

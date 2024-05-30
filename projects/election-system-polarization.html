@@ -37,13 +37,13 @@
         <p>A visual representation of our agent based model in two dimensional opinion space is shown below. Candidates are shown as circles and Voters are shown as X's. Voters are colored as the Candidate they support. </p>
 
         <div class="half-width-image">
-            <img src="../imgs/agent-loc-2d-t500.png" alt="2d Opinion Space ABM">
+            <img src="../imgs/election-system-polarization/agent-loc-2d-t500.png" alt="2d Opinion Space ABM">
         </div>
         
         <p>An important aspect of an Agent Based Model is that these agents can move around in opinion space. Above, the model is shown at time step 500. Below, the model is shown at time step 3000. Notice how the agents have gotten closer in their opinions and formed clusters.</p>
 
         <div class="half-width-image">
-            <img src="../imgs/agent-loc-2d-t3000.png" alt="2d Opinion Space ABM">
+            <img src="../imgs/election-system-polarization/agent-loc-2d-t3000.png" alt="2d Opinion Space ABM">
         </div>
 
         <p>To understand exactly how the model works, check out the Methods section of my thesis to find the mathematical description of the model.</p>
@@ -56,13 +56,13 @@
         <p>We looked at two types of opinion updates, <i>Bounded Confidence</i> and <i>Attraction-Repulsion</i>. We also studied two types of election systems, <i>Instant Runoff Ranked Choice</i> and <i>Plurality</i>. This gave us for types of models. We studied the polarization of the models as the variance among the opinions of all agents in the model. The graph below shows the change in polarization (variance) for each model averaged across 1000 runs for one set of parameters.</p>
 
         <div class="full-width-image">
-            <img src="../imgs/compare_variance.png" alt="Comparing the polarization across election system.">
+            <img src="../imgs/election-system-polarization/compare_variance.png" alt="Comparing the polarization across election system.">
         </div>
 
         <p>The graph shows that Instant Runoff Ranked Choice voting led to a 35% decrease in polarization in the Bounded Confidence model under these parameters, while it led to a 3% increase in polarization in the Attraction-Repulsion model. Below is the same graph, but with a different set of parameters. We can see here that Instant Runoff Ranked choice led to a 95% decrease in polarization in Attraction-Repulsion, and a negligible difference in Bounded Confidence.</p>
 
         <div class="full-width-image">
-            <img src="../imgs/compare_variance-extreme.png" alt="Comparing the variance across election system.">
+            <img src="../imgs/election-system-polarization/compare_variance-extreme.png" alt="Comparing the variance across election system.">
         </div>
 
         <h1>Single Run Examples</h1>
@@ -74,7 +74,7 @@
         <p>In some runs, particularly Bounded Confidence opinion update runs, Candidates are able to connect two disparate opinion clusters. Fig. 4.3 shows such a run, where starting around t = 2000, Voters begin to diverge into two disparate opinion groups. Some agents do crossover, but by around t = 6000, all movement between groups has stopped. Shortly after that, however, a Candidate enters the model with an opinion near the middle of the two groups. This Candidate facilitates movement between the two groups by interacting with Voters and attracting them to within the threshold of the other group, at which point the two groups converge. This is not always the case, however.</p>
 
         <div class="full-width-image">
-            <img src="../imgs/intermediate-candidate.png" alt="single run example of the intermediate candidate effect">
+            <img src="../imgs/election-system-polarization/intermediate-candidate.png" alt="single run example of the intermediate candidate effect">
         </div>
 
         <h2>Ranked Choice Allows for Compromise</h2>
@@ -82,7 +82,7 @@
         <p>Ranked choice systems allow for compromising policies in a way that plurality systems may not. Fig. 4.4 provides an example of this, where in the Attraction-Repulsion ranked choice system it is possible for a centrist Candidate to win the election in a highly polarized system. In this run, the Voter population quickly polarizes into two groups at opposite ends of opinion space, and the initial Candidates follow them. At around t = 4,500, several new Candidates enter the race occupying centrist positions. They are not inclined to move much towards either group as they are in an area of high numbers of expected second choice votes. Despite not being near any Voter agents, a centrist Candidate is able to win election at t = 6, 500, while occupying a position between the two polarized groups.</p>
 
         <div class="full-width-image">
-            <img src="../imgs/rc-compromise.png" alt="single run example of how ranked choice creates compromise">
+            <img src="../imgs/election-system-polarization/rc-compromise.png" alt="single run example of how ranked choice creates compromise">
         </div>
 
         <h2>Extreme and Powerful Candidate Effect</h2>
@@ -90,7 +90,7 @@
         <p>In some cases, a Candidate occupying an ideologically extreme position is able to become politically powerful, despite not winning an election, through a series of second place finishes. Once they become powerful, they exercise a large influence on the Voter’s nearby them, which is shown through their ability to change the opinions of those Voters. In one example of this, shown in Fig. 4.5, the Voters have formed two opinion clusters, around 0.4 and 0.8 by t = 7, 000. At around t = 8, 000, the Voters begin to converge. However, instead of converging around a mean opinion of the two groups as would usually be the case, they instead converge around the mean opinion of the more ideologically extreme group due to the political influence of this extreme Candidate.</p>
 
         <div class="full-width-image">
-            <img src="../imgs/extreme-candidate.png" alt="single run example of the extreme and powerful candidate effect">
+            <img src="../imgs/election-system-polarization/extreme-candidate.png" alt="single run example of the extreme and powerful candidate effect">
         </div>
 
         <h2>Centrist Candidates Hold the Middle</h2>
@@ -98,7 +98,7 @@
         <p>In Attraction-Repulsion systems, which tend to polarize quickly and acutely, it is possible for a group of centrist Voters to not polarize if there are also centrist Candidates present. Fig. 4.6 shows one such example. Up to around time step 5,000, there is a group of four Candidates, three of which are relatively influential, all centered around an opinion value of 0.6. Despite polarized opinion groups forming on either side of them, this centrist group remains in the middle with a core voter bloc. However, once all but one of these Candidates have exited the race (t = 5000) the centrist Voter group begins to dissolve. The single remaining Candidate is unable to hold the middle group any longer, and by the end of the run, all Voters have moved to one of the polarized groups. The ability of this centrist group of Candidates to hold the middle for that long is noteworthy, as most Attraction-Repulsion runs have reached polarization by time step 5,000 (Fig. 4.1).</p>
 
         <div class="full-width-image">
-            <img src="../imgs/centrist-holds-middle.png" alt="single run example of how centrist candidates can hold the middle.">
+            <img src="../imgs/election-system-polarization/centrist-holds-middle.png" alt="single run example of how centrist candidates can hold the middle.">
         </div>
 
         <h1>Parameter Sweeps</h1>
@@ -106,13 +106,13 @@
         <p>These figures show the relationship between model parameters and system polarization. Understanding them requires understanding how these paremeters function in the model. If you are interested, I would reccomend reading my thesis. I am putting them here soley because they are fun to look at.</p>
 
         <div class="half-width-image">
-            <img src="../imgs/tm-grid.png" alt="">
-            <img src="../imgs/bs-grid.png" alt="">
+            <img src="../imgs/election-system-polarization/tm-grid.png" alt="">
+            <img src="../imgs/election-system-polarization/bs-grid.png" alt="">
         </div>
 
         <div class="half-width-image">
-            <img src="../imgs/et-grid.png" alt="">
-            <img src="../imgs/gr-grid.png" alt="">
+            <img src="../imgs/election-system-polarization/et-grid.png" alt="">
+            <img src="../imgs/election-system-polarization/gr-grid.png" alt="">
         </div>
 
     </div>

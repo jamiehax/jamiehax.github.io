@@ -39,9 +39,9 @@ body {
 }
 
 .popup.expanded {
-    width: 400px; /* expanded width */
-    height: 200px; /* expanded height */
-    color: rgb(225, 225, 255); /* optional: change background color */
+    width: 400px;
+    height: 200px;
+    color: rgb(225, 225, 255);
     background-color: rgba(10, 10, 25, 1);
 }
 
@@ -86,5 +86,15 @@ body {
 /* Add space between links */
 .links-container a + a {
     margin-top: 10px;
+}
+
+.popup a{
+    font-style: italic;
+    text-decoration: none;
+    color: rgb(225, 225, 255);
+}
+
+.popup a:hover {
+    text-decoration: underline;
 }
 

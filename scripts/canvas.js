@@ -2,12 +2,13 @@ window.onload = function() {
     const canvas = document.getElementById('backgroundCanvas');
     const ctx = canvas.getContext('2d');
 
-    const numberOfLines = 15;
+    const numberOfLines = 25;
     const threshold = 150; 
-    const movementFraction = 0.2;
+    const movementFraction = 0.25;
     const interactionInterval = 1;
-    const segmentLength = 5;
-    const drawInterval = 2;
+    const segmentLength = 4;
+    const drawInterval = 1;
+    const lineWidth = 4;
 
     let lines = [];
     let frameCount = 0;
@@ -28,7 +29,7 @@ window.onload = function() {
         for (let i = 0; i < numberOfLines; i++) {
             lines.push({
                 segments: [{ x: 0, y: Math.random() * canvas.height }],
-                finished: false // Add a finished flag to each line
+                finished: false
             });
         }
     }
@@ -49,10 +50,9 @@ window.onload = function() {
                     }
 
                     ctx.strokeStyle = 'rgba(225, 225, 255, 0.8)';
-                    ctx.lineWidth = 5;
+                    ctx.lineWidth = lineWidth;
                     ctx.stroke();
 
-                    // Add new segment if the last segment has moved far enough
                     const lastSegment = line.segments[line.segments.length - 1];
                     if (lastSegment.x < canvas.width) {
                         line.segments.push({
@@ -64,7 +64,6 @@ window.onload = function() {
                     }
                 });
 
-                // Check if all lines are finished
                 if (lines.every(line => line.finished)) {
                     allLinesFinished = true;
                 }
@@ -77,7 +76,7 @@ window.onload = function() {
             if (!allLinesFinished) {
                 requestAnimationFrame(animate);
             } else {
-                showPopup(); // Call showPopup when all lines are finished
+                showPopup();
             }
         }
 
@@ -92,7 +91,6 @@ window.onload = function() {
             const agent1 = lines[randomIndex1];
             const agent2 = lines[randomIndex2];
 
-            // Only interact if both agents haven't finished
             if (!agent1.finished && !agent2.finished) {
                 const lastSegment1 = agent1.segments[agent1.segments.length - 1];
                 const lastSegment2 = agent2.segments[agent2.segments.length - 1];
@@ -100,7 +98,6 @@ window.onload = function() {
                 if (Math.abs(lastSegment1.y - lastSegment2.y) <= threshold) {
                     const deltaY = (lastSegment2.y - lastSegment1.y) * movementFraction;
 
-                    // Update the last segment of each line
                     agent1.segments[agent1.segments.length - 1].y += deltaY;
                     agent2.segments[agent2.segments.length - 1].y -= deltaY;
                 }
@@ -118,7 +115,6 @@ window.onload = function() {
     const popupContent = document.getElementById("popup-content");
     const popupContentExpanded = document.getElementById("popup-content-expanded");
 
-    // Function to expand the popup and change its content
     function expandPopup() {
         popup.classList.toggle("expanded");
 
@@ -131,7 +127,6 @@ window.onload = function() {
         }
     }
 
-    // Add event listener to the popup
     popup.addEventListener("click", expandPopup);
 
 };
